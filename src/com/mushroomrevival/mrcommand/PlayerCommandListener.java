@@ -24,23 +24,23 @@ public class PlayerCommandListener implements Listener {
 
 	@EventHandler
 	public void onCommandPreProcess(PlayerCommandPreprocessEvent event) {
-		readAdmins();
 		Player player = (Player) event.getPlayer();
 		String message = event.getMessage();
-		if ((admins.contains(player.getName()))) {
-		} 
-		else {
-			int ii = 1;
-			while (plugin.getConfig().contains("Command" + ii)) {
-				if (message.startsWith(plugin.getConfig().getString(
-						"Command" + ii))) {
+		int ii = 1;
+		while (plugin.getConfig().contains("Command" + ii)) {
+			if (message
+					.startsWith(plugin.getConfig().getString("Command" + ii))) {
+				readAdmins();
+				if ((admins.contains(player.getName()))) {
+
+				} else {
 					event.setCancelled(true);
 					player.sendMessage(ChatColor.WHITE
-							+ "Unknown command. Type \"/help\" for help bro.");
-				} 
-				ii++;
+							+ "Unknown command. Type \"/help\" for help.");
+				}
 			}
-		} 
+			ii++;
+		}
 	}
 
 	public void readAdmins() {
