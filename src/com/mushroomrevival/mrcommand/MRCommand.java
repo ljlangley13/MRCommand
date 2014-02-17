@@ -3,8 +3,6 @@ package com.mushroomrevival.mrcommand;
 import com.mushroomrevival.mrcommand.PlayerCommandListener;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -14,7 +12,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MRCommand extends JavaPlugin {
 	public final Logger logger = Bukkit.getServer().getLogger();
 	public static MRCommand plugin;
-	public static List<String> admins = new LinkedList<String>();
 	public static MRCommand instance;
 	public static MRCommand getInstance() {
 		return instance;

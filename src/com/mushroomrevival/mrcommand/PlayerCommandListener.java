@@ -28,7 +28,7 @@ public class PlayerCommandListener implements Listener {
 		String message = event.getMessage();
 		if ((admins.contains(player.getName()))) {
 		} else {
-			if (message.startsWith("/time")) {
+			if (message.startsWith(plugin.getConfig().getString("CommandOne")) || message.startsWith(plugin.getConfig().getString("CommandTwo")) || message.startsWith(plugin.getConfig().getString("CommandThree")) || message.startsWith(plugin.getConfig().getString("CommandFour")) || message.startsWith(plugin.getConfig().getString("CommandFive")) || message.startsWith(plugin.getConfig().getString("CommandSix")) || message.startsWith(plugin.getConfig().getString("CommandSeven")) || message.startsWith(plugin.getConfig().getString("CommandEight")) || message.startsWith(plugin.getConfig().getString("CommandNine")) || message.startsWith(plugin.getConfig().getString("CommandTen")) || message.startsWith(plugin.getConfig().getString("CommandEleven")) || message.startsWith(plugin.getConfig().getString("CommandTwelve")) || message.startsWith(plugin.getConfig().getString("CommandThirteen")) || message.startsWith(plugin.getConfig().getString("CommandFourteen")) || message.startsWith(plugin.getConfig().getString("CommandFifteen")) || message.startsWith(plugin.getConfig().getString("CommandSixteen")) || message.startsWith(plugin.getConfig().getString("CommandSeventeen")) || message.startsWith(plugin.getConfig().getString("CommandEighteen")) || message.startsWith(plugin.getConfig().getString("CommandNineteen")) || message.startsWith(plugin.getConfig().getString("CommandTwenty"))) {
 				event.setCancelled(true);
 				player.sendMessage(ChatColor.WHITE
 						+ "Unknown command. Type \"/help\" for help.");
