@@ -1,23 +1,5 @@
 ###Welcome to the MRCommand config file. 
 #Please type the command you want to block including the /
 #Below is an example to block the /time command.
-CommandOne: /time
-CommandTwo: 
-CommandThree: 
-CommandFour: 
-CommandFive: 
-CommandSix: 
-CommandSeven: 
-CommandEight: 
-CommandNine:
-CommandTen:
-CommandEleven:
-CommandTwelve:
-CommandThirteen:
-CommandFourteen:
-CommandFifteen:
-CommandSixteen:
-CommandSeventeen:
-CommandEighteen:
-CommandNineteen:
-CommandTwenty:
+Command1: /time
+Command2:

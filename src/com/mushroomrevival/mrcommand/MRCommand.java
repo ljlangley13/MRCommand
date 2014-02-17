@@ -25,6 +25,7 @@ public class MRCommand extends JavaPlugin {
 			configFile.mkdir();
 			saveDefaultConfig();
 		}
+		
 		initializeListeners();
 		instance = this;
 

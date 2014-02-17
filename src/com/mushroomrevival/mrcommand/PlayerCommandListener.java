@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 public class PlayerCommandListener implements Listener {
 	public static MRCommand plugin;
 	public static List<String> admins = new LinkedList<String>();
+	public static List<String> blockedcommands = new LinkedList<String>();
 
 	public PlayerCommandListener(MRCommand instance) {
 		plugin = instance;
@@ -22,19 +23,26 @@ public class PlayerCommandListener implements Listener {
 	}
 
 	@EventHandler
-	public void onCommandPostProcess(PlayerCommandPreprocessEvent event) {
+	public void onCommandPreProcess(PlayerCommandPreprocessEvent event) {
 		readAdmins();
 		Player player = (Player) event.getPlayer();
 		String message = event.getMessage();
 		if ((admins.contains(player.getName()))) {
-		} else {
-			if (message.startsWith(plugin.getConfig().getString("CommandOne")) || message.startsWith(plugin.getConfig().getString("CommandTwo")) || message.startsWith(plugin.getConfig().getString("CommandThree")) || message.startsWith(plugin.getConfig().getString("CommandFour")) || message.startsWith(plugin.getConfig().getString("CommandFive")) || message.startsWith(plugin.getConfig().getString("CommandSix")) || message.startsWith(plugin.getConfig().getString("CommandSeven")) || message.startsWith(plugin.getConfig().getString("CommandEight")) || message.startsWith(plugin.getConfig().getString("CommandNine")) || message.startsWith(plugin.getConfig().getString("CommandTen")) || message.startsWith(plugin.getConfig().getString("CommandEleven")) || message.startsWith(plugin.getConfig().getString("CommandTwelve")) || message.startsWith(plugin.getConfig().getString("CommandThirteen")) || message.startsWith(plugin.getConfig().getString("CommandFourteen")) || message.startsWith(plugin.getConfig().getString("CommandFifteen")) || message.startsWith(plugin.getConfig().getString("CommandSixteen")) || message.startsWith(plugin.getConfig().getString("CommandSeventeen")) || message.startsWith(plugin.getConfig().getString("CommandEighteen")) || message.startsWith(plugin.getConfig().getString("CommandNineteen")) || message.startsWith(plugin.getConfig().getString("CommandTwenty"))) {
-				event.setCancelled(true);
-				player.sendMessage(ChatColor.WHITE
-						+ "Unknown command. Type \"/help\" for help.");
+		} 
+		else {
+			int ii = 1;
+			while (plugin.getConfig().contains("Command" + ii)) {
+				if (message.startsWith(plugin.getConfig().getString(
+						"Command" + ii))) {
+					event.setCancelled(true);
+					player.sendMessage(ChatColor.WHITE
+							+ "Unknown command. Type \"/help\" for help bro.");
+				} 
+				ii++;
 			}
-		}
+		} 
 	}
+
 	public void readAdmins() {
 		try {
 			File file = new File("plugins/MRCommand/admins.txt");
