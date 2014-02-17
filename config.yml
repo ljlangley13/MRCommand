@@ -1,5 +1,8 @@
 ###Welcome to the MRCommand config file. 
+#You can set what you want the message to be if someone trys to run a disabled command below:
+DisabledCommandMessage: Unknown Command. Type "/help" for help.
 #Please type the command you want to block including the /
 #Below is an example to block the /time command.
+#You can add an unlimited number of commands.
 Command1: /time
 Command2:

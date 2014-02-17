@@ -36,7 +36,7 @@ public class PlayerCommandListener implements Listener {
 				} else {
 					event.setCancelled(true);
 					player.sendMessage(ChatColor.WHITE
-							+ "Unknown command. Type \"/help\" for help.");
+							+ (plugin.getConfig().getString("DisabledCommandMessage")));
 				}
 			}
 			ii++;
