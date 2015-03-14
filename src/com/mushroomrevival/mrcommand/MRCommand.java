@@ -1,8 +1,10 @@
 package com.mushroomrevival.mrcommand;
 
 import com.mushroomrevival.mrcommand.PlayerCommandListener;
+import com.mushroomrevival.mrcommand.Metrics;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -18,6 +20,12 @@ public class MRCommand extends JavaPlugin {
 	}
 
 	public void onEnable() {
+		try {
+			Metrics metrics = new Metrics(this);
+			metrics.start();
+		} catch (IOException e) {
+			System.out.println("Error Submitting stats!");
+		}
 
 		File configFile = new File(getDataFolder().getAbsolutePath(),
 				"config.yml");
