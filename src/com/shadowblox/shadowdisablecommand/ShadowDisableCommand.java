@@ -1,37 +1,38 @@
-package com.mushroomrevival.mrcommand;
+package com.shadowblox.shadowdisablecommand;
 
-import com.mushroomrevival.mrcommand.PlayerCommandListener;
-import com.mushroomrevival.mrcommand.Metrics;
+import com.shadowblox.shadowdisablecommand.PlayerCommandListener;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class MRCommand extends JavaPlugin {
+public class ShadowDisableCommand extends JavaPlugin {
 	public final Logger logger = Bukkit.getServer().getLogger();
-	public static MRCommand plugin;
-	public static MRCommand instance;
-	public static MRCommand getInstance() {
+	public static ShadowDisableCommand plugin;
+	public static ShadowDisableCommand instance;
+	public static ShadowDisableCommand getInstance() {
 		return instance;
 	}
 
 	public void onEnable() {
-		try {
-			Metrics metrics = new Metrics(this);
-			metrics.start();
-		} catch (IOException e) {
-			System.out.println("Error Submitting stats!");
-		}
-
+		
 		File configFile = new File(getDataFolder().getAbsolutePath(),
 				"config.yml");
 		if (!configFile.exists()) {
 			configFile.mkdir();
 			saveDefaultConfig();
+		}
+		
+		try {
+			File file = new File("plugins/ShadowDisableCommand/admins.txt");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+		} catch (Exception exception) {
+
 		}
 		
 		initializeListeners();

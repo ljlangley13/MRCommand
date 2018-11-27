@@ -1,4 +1,4 @@
-package com.mushroomrevival.mrcommand;
+package com.shadowblox.shadowdisablecommand;
 
 import java.io.File;
 import java.util.LinkedList;
@@ -13,11 +13,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 public class PlayerCommandListener implements Listener {
-	public static MRCommand plugin;
+	public static ShadowDisableCommand plugin;
 	public static List<String> admins = new LinkedList<String>();
 	public static List<String> blockedcommands = new LinkedList<String>();
 
-	public PlayerCommandListener(MRCommand instance) {
+	public PlayerCommandListener(ShadowDisableCommand instance) {
 		plugin = instance;
 		Bukkit.getServer().getPluginManager().registerEvents(this, instance);
 	}
@@ -45,10 +45,7 @@ public class PlayerCommandListener implements Listener {
 
 	public void readAdmins() {
 		try {
-			File file = new File("plugins/MRCommand/admins.txt");
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+			File file = new File("plugins/ShadowDisableCommand/admins.txt");
 			Scanner scanner = new Scanner(file);
 			while (scanner.hasNext()) {
 				String string = scanner.nextLine();

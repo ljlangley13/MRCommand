@@ -1,4 +1,4 @@
-name: MRCommand
-main: com.mushroomrevival.mrcommand.MRCommand
-version: 1.0
-             This plugin allows you to disable commands for players not on the admins list.
+name: ShadowDisableCommand
+main: com.shadowblox.shadowdisablecommand.ShadowDisableCommand
+version: 2.0
+             This plugin allows you to disable any commands for players not on the admins list.

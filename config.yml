@@ -1,4 +1,4 @@
-###Welcome to the MRCommand config file. 
+###Welcome to the ShadowDisableCommand config file. 
 #You can set what you want the message to be if someone trys to run a disabled command below:
 DisabledCommandMessage: Unknown Command. Type "/help" for help.
 #Please type the command you want to block including the /
